@@ -14,7 +14,7 @@ class Employ {
 
   factory Employ.fromJson(Map<String, dynamic> json) {
     return Employ(
-      id : json['id'] ,
+     id : json['id'] ,
      firstName : json['firstName'] ,
      lastName : json['lastName'] ,
      imageUrl: json['imageUrl'],

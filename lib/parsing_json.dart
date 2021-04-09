@@ -18,8 +18,12 @@ class ParsingJson extends StatelessWidget {
                 .loadString('assets/employees.json'),
             builder: (context, snapshot) {
               List<Employ> employees = parseJson(snapshot.data);
+
               return employees.isNotEmpty
-                  ? EmployList(employ: employees)
+                  ? EmployeesListWithAZscroll(
+                      itemHeight: 62.0,
+                      items: employees,
+                    )
                   : Center(child: CircularProgressIndicator());
             },
           ),
