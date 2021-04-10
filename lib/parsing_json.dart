@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:employee/models/employ.dart';
+import 'package:employee/screens/employee_details.dart';
 import 'package:employee/screens/employees_list.dart';
 import 'package:flutter/material.dart';
 

@@ -50,6 +50,20 @@ class EmployeeDetails extends StatelessWidget {
                 },
               ),
             ),
+            SizedBox(
+              height: 50.0,
+              width: 120.0,
+              child: OutlinedButton(onPressed: ()=> Navigator.pop(context),
+               child: Text('Back'),
+               style: ButtonStyle(
+                 backgroundColor: MaterialStateProperty.resolveWith((states) {
+                   if (states.contains(MaterialState.pressed))
+                      return Theme.of(context).colorScheme.primary.withOpacity(0.5);
+                      return null;
+                 })
+               )
+               ),
+            )
           ],
         ),
       ),
