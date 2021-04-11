@@ -6,7 +6,7 @@ import 'package:employee/screens/employees_list.dart';
 import 'package:flutter/material.dart';
 
 class ParsingJson extends StatelessWidget {
-  List data;
+  static List data;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

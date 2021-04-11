@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class EmployeesListWithAZscroll extends StatefulWidget {
   final List items;
   final double itemHeight;
-  
 
   EmployeesListWithAZscroll({
     @required this.items,
@@ -126,37 +125,35 @@ class _EmployeesListWithAZscrollState extends State<EmployeesListWithAZscroll> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
-            child: ListView.builder(
-              controller: _scrollController,
-              //  itemCount: widget.items.length,
-              itemCount: widget.items == null ? 0 : widget.items.length,
-              // manually set item height for scrolling calculation
-              itemExtent: widget.itemHeight,
-               itemBuilder: (BuildContext context, int index) {
-                if (widget.items[index].firstName.startsWith(currentChar)) {
-                return Card(
-                          child: ListTile(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                EmployeeDetails(employ: widget.items[index]),
-                          ),
-                        ),
-                        leading: CircleAvatar(
-                          radius: 25.0,
-                          backgroundImage: NetworkImage(widget.items[index].imageUrl),
-                        ),
-                        title: Text(widget.items[index].firstName +
-                            ' ' +
-                            widget.items[index].lastName),
-                      ));
-                }
-                return null;
-               })
-            
-            ),
-          
+              child: ListView.builder(
+            controller: _scrollController,
+            //  itemCount: widget.items.length,
+            itemCount: widget.items == null ? 0 : widget.items.length,
+            // manually set item height for scrolling calculation
+            itemExtent: widget.itemHeight,
+            itemBuilder: (BuildContext context, int index) {
+              // if (widget.items[index].firstName.startsWith(currentChar)) {
+              return Card(
+                  child: ListTile(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        EmployeeDetails(employ: widget.items[index]),
+                  ),
+                ),
+                leading: CircleAvatar(
+                  radius: 25.0,
+                  backgroundImage: NetworkImage(widget.items[index].imageUrl),
+                ),
+                title: Text(widget.items[index].firstName +
+                    ' ' +
+                    widget.items[index].lastName),
+              ));
+              // }
+              // return null;
+            },
+          )),
           _alphabeticalIndex(context, widget.items)
         ],
       ),
